@@ -1,5 +1,6 @@
 #!/bin/bash
 
-docker-compose restart
+docker-compose down
+docker-compose up -d
 
-./logs.sh
+./health.sh

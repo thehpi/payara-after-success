@@ -11,6 +11,10 @@ services:
          - "58443:8443"
          - "54848:4848"
          - "59009:9009"
+        volumes:
+        - $PWD/test-jpa/postgresql-42.6.0.jar:/opt/payara/appserver/glassfish/domains/domain1/lib/postgresql-42.6.0.jar
+        - $PWD/postboot.asadmin:/opt/payara/config/post-boot-commands.asadmin
+        - $PWD/test-ear/target/test-ear-1.0.0-SNAPSHOT.ear:/opt/payara/deployments/test-ear.ear
     db:
         image: postgres:9.6-alpine
         environment:

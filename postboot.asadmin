@@ -1,0 +1,5 @@
+create-jdbc-connection-pool --datasourceclassname org.postgresql.xa.PGXADataSource --restype javax.sql.XADataSource --property user=hans:password=hans:databaseName=hans:serverName=db:portNumber=5432:socketTimeout=5:connectTimeout=1:loginTimeout=10:tcpKeepAlive=false dbTestDatabase
+create-jdbc-resource --connectionpoolid dbTestDatabase jdbc/dbTestDatabase
+create-jdbc-resource --connectionpoolid dbTestDatabase jdbc/dbTestCache
+
+set-log-levels java.util.logging.ConsoleHandler=FINE

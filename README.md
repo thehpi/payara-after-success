@@ -112,31 +112,13 @@ You need
 
 ## Building and starting the application
 
-First start the docker environment
+Build the application
 
-    ./start.sh
+    mvn clean install -DskipTests
 
-Then log into payara
+Start the docker environment and application
 
-    docker-compose exec payara asadmin login
-
-If it fails wait a while, until payara has started up.
-
-Then build and deploy the application:
-
-    ./build.sh -nd
-
-Set fine logging
-
-    docker-compose exec payara asadmin set-log-levels java.util.logging.ConsoleHandler=FINE
-
-Deploy the application
-
-    ./redeploy.sh
-
-If you have done the above already once, then you can destroy and rebuild everything by running
-
-    ./rebuild.sh
+    ./restart.sh
 
 When successful you can create records using scripts:
 
