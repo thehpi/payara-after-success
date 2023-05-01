@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+    payara:
+        image: payara/server-full:6.2023.2
+        user: root
+        environment:
+        - PAYARA_ARGS=--debug
+        ports:
+         - "58080:8080"
+         - "58181:8181"
+         - "58443:8443"
+         - "54848:4848"
+         - "59009:9009"
+    db:
+        image: postgres:9.6-alpine
+        environment:
+        - POSTGRES_PASSWORD=hans
+        - POSTGRES_USER=hans
+        - POSTGRES_DB=hans
+        ports:
+        - "45432:5432"
+        volumes:
+        - my-datavolume:/var/lib/postgresql/data
+volumes:
+  my-datavolume:
+
