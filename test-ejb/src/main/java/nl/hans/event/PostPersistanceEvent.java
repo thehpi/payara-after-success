@@ -7,4 +7,4 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
-public @interface PostRemoveEvent {}
+public @interface PostPersistanceEvent {}

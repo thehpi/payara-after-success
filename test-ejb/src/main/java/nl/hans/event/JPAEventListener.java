@@ -16,14 +16,9 @@ public class JPAEventListener {
     @Inject
     JPAEventNotifier jpaEventNotifier;
 
-    public void postUpdate(@Observes(during = TransactionPhase.AFTER_SUCCESS) @PostUpdateEvent Object entity) {
-        logger.info(() -> "JPAEventListener: PostUpdateEvent: " + entity + " : tx status: " + TxStatus.getTxStatus());
-        jpaEventNotifier.postUpdate(entity);
-    }
-
-    public void postRemove(@Observes(during = TransactionPhase.AFTER_SUCCESS) @PostRemoveEvent Object entity) {
-        logger.info(() -> "JPAEventListner: PostRemoveEvent: " + entity + " : tx status: " + TxStatus.getTxStatus());
-        jpaEventNotifier.postRemove(entity);
+    public void postEntityManagerAction(@Observes(during = TransactionPhase.AFTER_SUCCESS) @PostPersistanceEvent Object entity) {
+        logger.info(() -> "JPAEventListener: PostPersistanceEvent: " + entity + " : tx status: " + TxStatus.getTxStatus());
+        jpaEventNotifier.notify(entity);
     }
 
 }

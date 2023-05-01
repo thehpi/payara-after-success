@@ -4,9 +4,9 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import nl.hans.MyEjb;
 import nl.hans.entities.Hans;
 import nl.hans.entities.HansChild;
+import nl.hans.service.MyEjbBean;
 
 import java.util.UUID;
 
@@ -16,7 +16,7 @@ import java.util.UUID;
 public class HansResource {
 
     @Inject
-    private MyEjb myEjb;
+    private MyEjbBean myEjb;
 
     @POST
     @Path("")

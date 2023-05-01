@@ -10,12 +10,8 @@ public class JPAEventNotifier {
     Notifier notifier;
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void postUpdate(Object entity) {
+    public void notify(Object entity) {
         notifier.notifyPeers(entity);
     }
 
-    @Transactional(Transactional.TxType.REQUIRED)
-    public void postRemove(Object entity) {
-        notifier.notifyPeers(entity);
-    }
 }
