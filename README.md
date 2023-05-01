@@ -112,20 +112,31 @@ You need
 
 ## Building and starting the application
 
-First start the docker environment, build and deploy the application:
+First start the docker environment
+
+    ./start.sh
+
+Then log into payara
+
+    docker-compose exec payara asadmin login
+
+If it fails wait a while, until payara has started up.
+
+Then build and deploy the application:
+
+    ./build.sh -nd
+
+Set fine logging
+
+    docker-compose exec payara asadmin set-log-levels java.util.logging.ConsoleHandler=FINE
+
+Deploy the application
+
+    ./redeploy.sh
+
+If you have done the above already once, then you can destroy and rebuild everything by running
 
     ./rebuild.sh
-
-This will
-
-* fire up payara
-* fire up a postgresql database
-* build the application using maven
-* deploy the postgresql drive to payara
-* register and configure jdbc connection pool and resources
-* deploy the application
-
-This script can also be used to destroy and rebuild everything so you can start over (not the db btw).
 
 When successful you can create records using scripts:
 
