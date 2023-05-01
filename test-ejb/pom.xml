@@ -17,12 +17,6 @@
     <dependencies>
         <dependency>
             <groupId>nl.hans.test</groupId>
-            <artifactId>test-client</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>nl.hans.test</groupId>
             <artifactId>test-jpa</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <scope>provided</scope>
