@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ./functions.sh
+
 file=hans.json
 if [ "$1" = "-f" ]
 then
